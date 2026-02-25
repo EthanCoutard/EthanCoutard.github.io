@@ -119,7 +119,7 @@ function sendMail(e) {
   const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\n${message}`)
 
   if (hint) hint.textContent = "Ouverture de l'application de mail"
-  window.location.href = `mailto:exemple@mail.com?subject=${subject}&body=${body}`
+  window.location.href = `mailto:ethancoutardpro@gmail.com?subject=${subject}&body=${body}`
   return false
 }
 
