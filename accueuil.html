@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ethan Coutard | Portfolio</title>
+  <link rel="stylesheet" href="./styles/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+
+<body>
+  <div id="loader">
+    <div class="loader-content">
+      <div class="spinner"></div>
+      <p>Chargement du portfolio…</p>
+    </div>
+  </div>
+
+  <video class="bg-video" id="video" autoplay muted loop playsinline preload="metadata">
+    <source src="videos/background.mp4" type="video/mp4">
+  </video>
+  <div class="overlay"></div>
+
+  <button class="menu-btn" id="menuBtn" aria-label="Ouvrir le menu" type="button">
+    <span></span><span></span><span></span>
+  </button>
+
+  <aside class="sidebar" id="sidebar">
+    <a class="brand" href="#top">
+      <img src="images/profil.png" alt="Photo de profil" width="44" height="44">
+      <div class="brand-text">
+        <div class="brand-name">Ethan Coutard</div>
+        <div class="brand-sub">Élève en Terminale Bac Pro CIEL</div>
+      </div>
+    </a>
+
+    <nav class="nav">
+      <a class="nav-link active" href="#top">Accueil</a>
+      <a class="nav-link" href="#about">À propos</a>
+      <a class="nav-link" href="#projects">Projets</a>
+      <a class="nav-link" href="#skills">Compétences</a>
+      <a class="nav-link" href="#contact">Contact</a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <a class="cta" href="#projects">Voir mes réalisations</a>
+      <div class="mini-links">
+        <a class="chip" href="https://github.com/EthanCoutard" target="_blank" rel="noreferrer">GitHub</a>
+        <a class="chip" href="https://www.linkedin.com/in/ethan-coutard-763733340/" target="_blank" rel="noreferrer">LinkedIn</a>
+        <a class="chip" href="mailto:ethancoutardpro@gmail.com">Mail</a>
+      </div>
+      <div class="small">© <span id="year"></span></div>
+    </div>
+  </aside>
+
+  <main class="main" id="top">
+    <section class="hero">
+      <div class="hero-stage">
+        <div class="orbit-wrapper">
+          <div class="orbit-parallax">
+            <div class="orbit-3d">
+              <div class="spin-x">
+                <div class="spin-y">
+                  <div class="spin-z">
+                    <div class="orbit-tilt">
+                      <div class="orbit-ring"></div>
+
+                      <div class="planets">
+                        <span class="p mercury"></span>
+                        <span class="p venus"></span>
+                        <span class="p earth"></span>
+                        <span class="p mars"></span>
+                        <span class="p jupiter"></span>
+                        <span class="p saturn"><i class="saturn-ring"></i></span>
+                        <span class="p uranus"></span>
+                        <span class="p neptune"></span>
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass hero-card reveal">
+          <p class="kicker">Développement • Réseaux • Systèmes</p>
+          <h1 class="title">Bonjour, moi c’est Ethan.</h1>
+          <p class="lead">
+            Étudiant en informatique, je développe des projets autour du backend, des réseaux et de l’automatisation.
+            J’aime comprendre comment les systèmes fonctionnent et construire des outils simples, propres et utiles.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn primary" href="#projects">Voir mes projets</a>
+            <a class="btn ghost" href="#contact">Me contacter</a>
+          </div>
+
+          <div class="badges">
+            <span class="badge">Python</span>
+            <span class="badge">Go</span>
+            <span class="badge">JS</span>
+            <span class="badge">Linux</span>
+            <span class="badge">Réseau</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="about">
+      <div class="section-head reveal">
+        <h2>À propos</h2>
+        <p>
+          Je suis en Terminale Bac Pro CIEL. Je cherche une alternance pour un BTS SIO option SLAM (développement) pour la rentrée 2026.
+          J’aime le dev backend, les sujets réseau et la cybersécurité, et je progresse surtout en construisant des projets.
+        </p>
+      </div>
+
+      <div class="grid-2">
+        <div class="glass card reveal">
+          <h3>Ce que j’aime faire</h3>
+          <ul class="list">
+            <li>Développer des outils et services qui tournent vraiment</li>
+            <li>Automatiser des tâches et fiabiliser des process</li>
+            <li>Tester, comprendre, corriger, améliorer</li>
+            <li>Apprendre en pratiquant (et en documentant)</li>
+          </ul>
+        </div>
+
+        <div class="glass card reveal">
+          <h3>Ce que je recherche</h3>
+          <ul class="list">
+            <li>Une alternance en BTS SIO à partir de 2026</li>
+            <li>Un environnement où je peux progresser vite</li>
+            <li>Des missions concrètes</li>
+            <li>Une équipe qui partage de bonnes pratiques</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="projects">
+      <div class="section-head reveal">
+        <h2>Projets</h2>
+        <p>Quelques projets personnels pour apprendre, tester et construire des choses concrètes.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="glass project reveal">
+          <div class="project-top">
+            <div class="status">
+                <span class="dot-orange"></span>
+                <h3>SecurisCloud</h3>
+            </div>
+
+            <span class="tag">Backend / Web</span>
+          </div>
+          <p>
+            Projet de plateforme d’hébergement avec gestion des utilisateurs, authentification et logique de sécurité côté serveur. (Projet fictif dans le cadre d'un projet pour la Bac)
+          </p>
+          <div class="stack">
+            <span>Go</span><span>SQL</span><span>Auth</span>
+          </div>
+          <a class="link" href="#">Détails →</a>
+        </article>
+
+        <article class="glass project reveal">
+          <div class="project-top">
+            <div class="status">
+                <span class="dot-orange"></span>
+                <h3>camara</h3>
+            </div>
+
+            <span class="tag">Vidéo / Réseau</span>
+          </div>
+          <p>
+            Outil de gestion de flux vidéo réseau : récupération RTSP, conversion et automatisation de la lecture et de la configuration.
+          </p>
+          <div class="stack">
+            <span>Python</span><span>FFmpeg</span><span>RTSP</span>
+          </div>
+          <a class="link" href="#">Détails →</a>
+        </article>
+
+        <article class="glass project reveal">
+          <div class="project-top">
+            <div class="status">
+              <span class="dot-orange"></span>
+              <h3>FootNotif</h3>
+            </div>
+            
+            <span class="tag">Automatisation</span>
+          </div>
+          <p>
+            Outil qui envoie par mail les matchs de foot à venir (semaine prochaine) pour les équipes que je suis.
+          </p>
+          <div class="stack">
+            <span>Python</span><span>CLI</span><span>JSON</span><span>API</span><span>Cron</span>
+          </div>
+          <a class="link" href="#">Détails →</a>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="skills">
+      <div class="section-head reveal">
+        <h2>Compétences</h2>
+        <p>Technos et domaines que je pratique le plus via mes projets.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="glass card reveal">
+          <h3>Développement</h3>
+          <ul class="list">
+            <li>Python (scripts, automatisation)</li>
+            <li>Go (API, backend)</li>
+            <li>Web (HTML, CSS, JavaScript)</li>
+            <li>Git (workflow, branches, PR)</li>
+          </ul>
+        </div>
+
+        <div class="glass card reveal">
+          <h3>Systèmes / Réseau</h3>
+          <ul class="list">
+            <li>Linux (services, bases d’admin)</li>
+            <li>Réseau (DNS, HTTP, RTSP)</li>
+            <li>Sécurisation (auth, accès, bonnes pratiques)</li>
+            <li>Déploiement et debug</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="glass stats reveal">
+        <div class="stat">
+          <div class="stat-value">3+</div>
+          <div class="stat-label">Langages pratiqués</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">5+</div>
+          <div class="stat-label">Projets réalisés</div>
+        </div>
+        <div class="stat">
+          <div class="stat-value">Tous les jours</div>
+          <div class="stat-label">Je progresse</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="certifications">
+      <div class="section-head reveal">
+        <h2>Certifications</h2>
+        <p>Certifications obtenues durant mon parcours.</p>
+      </div>
+
+      <div class="grid-3">
+        <article class="glass project reveal">
+          <div class="project-top">
+            <h3>Pix</h3>
+            <span class="tag">Compétences numériques</span>
+          </div>
+          <p>
+            Certification nationale qui valide des compétences numériques : traitement de données, sécurité de base,
+            développement et recherche d’informations.
+          </p>
+          <div class="stack">
+            <span>Données</span><span>Dév</span><span>Sécurité</span><span>Recherche</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="contact">
+      <div class="section-head reveal">
+        <h2>Contact</h2>
+        <p>N’hésite pas à me contacter pour échanger ou discuter d’une opportunité.</p>
+      </div>
+
+      <div class="grid-2">
+        <div class="glass card reveal">
+          <h3>Liens</h3>
+          <p class="muted">
+            GitHub, LinkedIn et mail pour me joindre rapidement.
+          </p>
+          <div class="contact-links">
+            <a class="chip" href="https://github.com/EthanCoutard" target="_blank" rel="noreferrer">GitHub</a>
+            <a class="chip" href="https://www.linkedin.com/in/ethan-coutard-763733340/" target="_blank" rel="noreferrer">LinkedIn</a>
+            <a class="chip" href="mailto:ethancoutardpro@gmail.com">ethancoutardpro@gmail.com</a>
+          </div>
+          <div class="status">
+            <span class="dot"></span>
+            Actuellement à la recherche d’une alternance pour un BTS SIO – rentrée 2026
+          </div>
+        </div>
+
+        <form class="glass card reveal form" onsubmit="return sendMail(event)">
+          <h3>Envoyer un message</h3>
+
+          <label class="field">
+            <span>Nom</span>
+            <input id="name" type="text" autocomplete="name" required />
+          </label>
+
+          <label class="field">
+            <span>Objet de la demande</span>
+
+            <div class="cselect" data-select="objet-mail">
+              <button class="cselect-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
+                <span class="cselect-value">Choisir un sujet</span>
+                <span class="cselect-arrow" aria-hidden="true"></span>
+              </button>
+
+              <div class="cselect-menu" role="listbox" tabindex="-1">
+                <button class="cselect-item" type="button" role="option" data-value="Demande de CV">Recevoir mon CV</button>
+                <button class="cselect-item" type="button" role="option" data-value="Proposition de stage">Proposition de stage / alternance</button>
+                <button class="cselect-item" type="button" role="option" data-value="Projet freelance">Projet informatique</button>
+                <button class="cselect-item" type="button" role="option" data-value="Question">Question</button>
+                <button class="cselect-item" type="button" role="option" data-value="Autre">Autre</button>
+              </div>
+            </div>
+
+            <select name="objet" id="objet-mail" required hidden>
+              <option value="">Choisir un sujet</option>
+              <option value="Demande de CV">Recevoir mon CV</option>
+              <option value="Proposition de stage">Proposition de stage / alternance</option>
+              <option value="Projet freelance">Projet informatique</option>
+              <option value="Question">Question</option>
+              <option value="Autre">Autre</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Adresse email</span>
+            <input id="email" type="email" autocomplete="email" required />
+          </label>
+
+          <label class="field">
+            <span>Votre message</span>
+            <textarea id="message" rows="6" required></textarea>
+          </label>
+
+          <button class="btn primary" type="submit">Envoyer le message</button>
+          <p class="hint" id="hint">Je vous répondrai dès que possible.</p>
+        </form>
+      </div>
+
+      <footer class="footer">
+        <div class="footer-inner">
+          <span>© <span id="year2"></span> Ethan Coutard — Portfolio</span>
+          <a class="backtop" href="#top">Retour en haut ↑</a>
+        </div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="./scripts/script.js"></script>
+</body>
+</html>
