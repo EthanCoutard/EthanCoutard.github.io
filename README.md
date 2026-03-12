@@ -1,2 +1,2 @@
 # EthanCoutard.github.io
-PorteFolio Ethan Coutard
+PortFolio Ethan Coutard
