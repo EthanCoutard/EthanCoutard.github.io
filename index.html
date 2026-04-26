@@ -3,23 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ethan Coutard | Portfolio</title>
+  <meta name="color-scheme" content="dark" />
+  <title>Ethan Coutard | Alternance BTS SIO SLAM 2026</title>
+  <meta
+    name="description"
+    content="Portfolio d'Ethan Coutard, eleve en Terminale Bac Pro CIEL, oriente backend, reseaux et automatisation, a la recherche d'une alternance BTS SIO SLAM pour la rentree 2026."
+  />
   <link rel="stylesheet" href="./styles/style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 
 <body>
   <div id="loader">
     <div class="loader-content">
       <div class="spinner"></div>
-      <p>Chargement du portfolio…</p>
+      <p>Chargement du portfolio...</p>
     </div>
   </div>
 
-  <video class="bg-video" id="video" autoplay muted loop playsinline preload="metadata">
-  <source src="https://securiscloud.ovh/pages/ethan/background.mp4" type="video/mp4">
+  <div class="bg-fallback" aria-hidden="true"></div>
+  <video class="bg-video" id="video" autoplay muted loop playsinline preload="metadata" aria-hidden="true">
+    <source src="./video/background.mp4" type="video/mp4">
   </video>
   <div class="overlay"></div>
 
@@ -29,23 +35,24 @@
 
   <aside class="sidebar" id="sidebar">
     <a class="brand" href="#top">
-      <img src="images/profil.png" alt="Photo de profil" width="44" height="44">
+      <img src="images/profil.png" alt="Photo de profil d'Ethan Coutard" width="44" height="44">
       <div class="brand-text">
         <div class="brand-name">Ethan Coutard</div>
-        <div class="brand-sub">Élève en Terminale Bac Pro CIEL</div>
+        <div class="brand-sub">Terminale Bac Pro CIEL</div>
       </div>
     </a>
 
     <nav class="nav">
       <a class="nav-link active" href="#top">Accueil</a>
-      <a class="nav-link" href="#about">À propos</a>
+      <a class="nav-link" href="#about">Profil</a>
       <a class="nav-link" href="#projects">Projets</a>
+      <a class="nav-link" href="#experience">Entreprise</a>
       <a class="nav-link" href="#skills">Compétences</a>
       <a class="nav-link" href="#contact">Contact</a>
     </nav>
 
     <div class="sidebar-footer">
-      <a class="cta" href="#projects">Voir mes réalisations</a>
+      <a class="cta" href="#contact">Me contacter</a>
       <div class="mini-links">
         <a class="chip" href="https://github.com/EthanCoutard" target="_blank" rel="noreferrer">GitHub</a>
         <a class="chip" href="https://www.linkedin.com/in/ethan-coutard-763733340/" target="_blank" rel="noreferrer">LinkedIn</a>
@@ -77,7 +84,6 @@
                         <span class="p uranus"></span>
                         <span class="p neptune"></span>
                       </div>
-
                     </div>
                   </div>
                 </div>
@@ -87,24 +93,49 @@
         </div>
 
         <div class="glass hero-card reveal">
-          <p class="kicker">Développement • Réseaux • Systèmes</p>
-          <h1 class="title">Bonjour, moi c’est Ethan.</h1>
-          <p class="lead">
-            Étudiant en informatique, je développe des projets autour du backend, des réseaux et de l’automatisation.
-            J’aime comprendre comment les systèmes fonctionnent et construire des outils simples, propres et utiles.
-          </p>
+          <div class="hero-copy">
+            <p class="kicker">Alternance BTS SIO SLAM • Rentrée 2026</p>
+            <h1 class="title">Ethan Coutard, étudiant en informatique orienté backend, réseaux et automatisation.</h1>
+            <p class="lead">
+              En Terminale Bac Pro CIEL, je développe des projets concrets en Python, Go et environnement Linux.
+              Je recherche une alternance pour un BTS SIO option SLAM à la rentrée 2026 afin d'apporter de la rigueur,
+              de la curiosité technique et une vraie capacité à apprendre vite sur le terrain.
+            </p>
 
-          <div class="hero-actions">
-            <a class="btn primary" href="#projects">Voir mes projets</a>
-            <a class="btn ghost" href="#contact">Me contacter</a>
+            <div class="hero-actions">
+              <a class="btn primary" href="#projects">Voir mes projets</a>
+              <a class="btn secondary" href="#contact">Me contacter</a>
+            </div>
+
+            <p class="hero-note">Pour recevoir mon CV, merci de me contacter via la section contact.</p>
+
+            <div class="badges">
+              <span class="badge">Backend</span>
+              <span class="badge">API</span>
+              <span class="badge">Automatisation</span>
+              <span class="badge">Linux</span>
+              <span class="badge">Réseau</span>
+            </div>
           </div>
 
-          <div class="badges">
-            <span class="badge">Python</span>
-            <span class="badge">Go</span>
-            <span class="badge">JS</span>
-            <span class="badge">Linux</span>
-            <span class="badge">Réseau</span>
+          <div class="hero-panels">
+            <article class="info-panel">
+              <span class="info-label">Formation actuelle</span>
+              <strong class="info-value">Terminale Bac Pro CIEL</strong>
+              <p>Un parcours qui renforce mes bases en informatique, systèmes et réseau.</p>
+            </article>
+
+            <article class="info-panel">
+              <span class="info-label">Objectif 2026</span>
+              <strong class="info-value">Alternance en BTS SIO option SLAM</strong>
+              <p>Intégrer une entreprise où je peux apprendre vite et contribuer sur des missions concrètes.</p>
+            </article>
+
+            <article class="info-panel">
+              <span class="info-label">Ce que je construis</span>
+              <strong class="info-value">Outils backend et projets techniques</strong>
+              <p>API, automatisation, scripts, logique serveur et sujets reliés aux systèmes et au réseau.</p>
+            </article>
           </div>
         </div>
       </div>
@@ -112,139 +143,354 @@
 
     <section class="section" id="about">
       <div class="section-head reveal">
-        <h2>À propos</h2>
+        <h2>Profil</h2>
         <p>
-          Je suis en Terminale Bac Pro CIEL. Je cherche une alternance pour un BTS SIO option SLAM (développement) pour la rentrée 2026.
-          J’aime le dev backend, les sujets réseau et la cybersécurité, et je progresse surtout en construisant des projets.
+          Je construis mon profil par la pratique : je pars d'un besoin concret, j'organise la solution, je teste,
+          je corrige et j'améliore. Mon objectif n'est pas de me présenter comme déjà expert, mais comme un futur
+          alternant sérieux, capable de contribuer et de monter rapidement en compétence.
         </p>
       </div>
 
-      <div class="grid-2">
+      <div class="grid-3 profile-grid">
         <div class="glass card reveal">
-          <h3>Ce que j’aime faire</h3>
-          <ul class="list">
-            <li>Développer des outils et services qui tournent vraiment</li>
-            <li>Automatiser des tâches et fiabiliser des process</li>
-            <li>Tester, comprendre, corriger, améliorer</li>
-            <li>Apprendre en pratiquant (et en documentant)</li>
-          </ul>
+          <h3>Ma progression</h3>
+          <p>
+            J'apprends surtout en développant des projets qui fonctionnent vraiment. Cette approche m'aide à renforcer
+            ma logique, ma méthode de travail et ma capacité à résoudre des problèmes techniques étape par étape.
+          </p>
         </div>
 
         <div class="glass card reveal">
-          <h3>Ce que je recherche</h3>
-          <ul class="list">
-            <li>Une alternance en BTS SIO à partir de 2026</li>
-            <li>Un environnement où je peux progresser vite</li>
-            <li>Des missions concrètes</li>
-            <li>Une équipe qui partage de bonnes pratiques</li>
+          <h3>Mes sujets de travail</h3>
+          <p>
+            Je m'oriente vers le backend, l'intégration d'API, l'automatisation, Linux et les bases réseau.
+            Ce sont les domaines dans lesquels je prends le plus de recul technique et où je progresse le plus vite.
+          </p>
+        </div>
+
+        <div class="glass card reveal">
+          <h3>Ce que je peux apporter</h3>
+          <ul class="list tight">
+            <li>Un profil junior sérieux, impliqué et fiable.</li>
+            <li>Une vraie envie d'apprendre vite et d'être utile rapidement.</li>
+            <li>De la rigueur sur des tâches concrètes, du script à la petite fonctionnalité backend.</li>
+            <li>Un intérêt naturel pour les environnements techniques et l'amélioration continue.</li>
           </ul>
         </div>
       </div>
     </section>
 
     <section class="section" id="projects">
-      <div class="section-head reveal">
-        <h2>Projets</h2>
-        <p>Quelques projets personnels pour apprendre, tester et construire des choses concrètes.</p>
+      <div class="section-head-row reveal">
+        <div class="section-head">
+          <h2>Projets</h2>
+          <p>
+            Des projets personnels et scolaires pensés pour travailler des problématiques réelles :
+            logique backend, automatisation, traitement de données, intégration d'API et usage des outils système.
+          </p>
+        </div>
+
+        <a class="section-link" href="https://github.com/EthanCoutard" target="_blank" rel="noreferrer">Voir mon GitHub</a>
       </div>
 
-      <div class="grid-3">
+      <div class="grid-3 project-grid">
         <article class="glass project reveal">
           <div class="project-top">
-            <div class="status">
-                <span class="dot-orange"></span>
-                <h3>SecurisCloud</h3>
-            </div>
-
+            <h3>SecurisCloud</h3>
             <span class="tag">Backend / Web</span>
           </div>
-          <p>
-            Projet de plateforme d’hébergement avec gestion des utilisateurs, authentification et logique de sécurité côté serveur. (Projet fictif dans le cadre d'un projet pour la Bac)
-          </p>
+
+          <ul class="project-details">
+            <li><strong>Contexte</strong> Projet fictif de plateforme d'hébergement réalisé dans un cadre scolaire.</li>
+            <li><strong>Objectif</strong> Travailler la logique backend, la gestion des utilisateurs et l'authentification.</li>
+            <li><strong>Réalisé</strong> Structuration côté serveur, gestion des comptes, logique d'accès et premières bases de sécurité applicative.</li>
+            <li><strong>Ce que cela démontre</strong> Ma capacité à concevoir un backend, organiser les données et réfléchir à la sécurité dès la conception.</li>
+          </ul>
+
           <div class="stack">
-            <span>Go</span><span>SQL</span><span>Auth</span>
+            <span>Go</span>
+            <span>SQL</span>
+            <span>Authentification</span>
           </div>
-          <a class="link" href="#">Détails →</a>
+
+          <div class="project-actions">
+            <a class="link" href="#contact">En parler</a>
+          </div>
         </article>
 
         <article class="glass project reveal">
           <div class="project-top">
-            <div class="status">
-                <span class="dot-orange"></span>
-                <h3>camara</h3>
-            </div>
+            <h3>Enregistreur RTSP</h3>
+            <span class="tag">Python / Réseau</span>
+          </div>
 
-            <span class="tag">Vidéo / Réseau</span>
-          </div>
-          <p>
-          Outil permettant d’enregistrer la vidéo d’une caméra de surveillance via un flux RTSP. Gestion des enregistrements automatiques et personnalisation de la qualité vidéo.
-          </p>
+          <ul class="project-details">
+            <li><strong>Contexte</strong> Outil développé autour d'un flux de caméra de surveillance.</li>
+            <li><strong>Objectif</strong> Enregistrer automatiquement une vidéo RTSP avec une gestion simple de la qualité.</li>
+            <li><strong>Réalisé</strong> Récupération du flux, automatisation des enregistrements et réglages sur la qualité vidéo via FFmpeg.</li>
+            <li><strong>Ce que cela démontre</strong> Ma capacité à interfacer un outil avec un protocole réseau et à m'appuyer sur des outils système concrets.</li>
+          </ul>
+
           <div class="stack">
-            <span>Python</span><span>FFmpeg</span><span>RTSP</span>
+            <span>Python</span>
+            <span>FFmpeg</span>
+            <span>RTSP</span>
           </div>
-          <a class="link" href="#">Détails →</a>
+
+          <div class="project-actions">
+            <a class="link" href="#contact">En parler</a>
+          </div>
         </article>
 
         <article class="glass project reveal">
           <div class="project-top">
-            <div class="status">
-              <span class="dot"></span>
-              <h3>FootNotif</h3>
-            </div>
-            
-            <span class="tag">Automatisation</span>
+            <h3>FootNotif</h3>
+            <span class="tag">Automatisation / API</span>
           </div>
+
+          <ul class="project-details">
+            <li><strong>Contexte</strong> Outil de suivi sportif conçu pour automatiser l'envoi d'informations utiles par email.</li>
+            <li><strong>Objectif</strong> Envoyer chaque jour ou chaque semaine le programme des équipes suivies.</li>
+            <li><strong>Réalisé</strong> Connexion à une API, traitement des données reçues, stockage avec SQLite, planification des envois et génération des emails.</li>
+            <li><strong>Ce que cela démontre</strong> Ma capacité à relier API, base de données, automatisation et notification dans un projet concret.</li>
+          </ul>
+
+          <div class="stack">
+            <span>Python</span>
+            <span>API</span>
+            <span>SQLite</span>
+            <span>SMTP</span>
+            <span>Cron</span>
+          </div>
+
+          <div class="project-actions">
+            <a class="link" href="https://github.com/EthanCoutard/FootNotif" target="_blank" rel="noreferrer">Voir le projet</a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section" id="experience">
+      <div class="section-head reveal">
+        <h2>Expérience en entreprise</h2>
+        <p>
+          Mes stages m'ont déjà permis de travailler en environnement réel sur la maintenance, le support, le réseau,
+          le déploiement de postes et le développement d'outils internes. Ces expériences montrent une progression
+          concrète entre les interventions terrain et la création d'applications utiles en entreprise.
+        </p>
+      </div>
+
+      <div class="timeline">
+        <article class="glass company-card company-card-featured reveal">
+          <div class="company-head">
+            <div class="company-ident">
+              <span class="company-kicker">Stage en entreprise</span>
+              <h3>Euro-Information</h3>
+              <p class="company-location">Paris</p>
+            </div>
+            <span class="company-badge">6 semaines</span>
+          </div>
+
+          <p class="company-summary">
+            Une expérience orientée développement applicatif et structuration de données dans un contexte d'usage
+            interne, avec une finalité exploitable pour de futures analyses.
+          </p>
+
+          <div class="period-list">
+            <article class="period-item">
+              <div class="period-meta">
+                <span>Janvier 2026 - février 2026</span>
+                <strong>6 semaines</strong>
+              </div>
+              <h4>Application de structuration de tickets</h4>
+              <p>
+                Développement d'une application permettant d'extraire et structurer des tickets issus d'un outil
+                interne de ticketing afin de constituer une base de connaissances exploitable pour de futures analyses
+                et usages en machine learning.
+              </p>
+              <div class="stack">
+                <span>Développement d'application</span>
+                <span>Ticketing</span>
+                <span>Base de connaissances</span>
+                <span>Data</span>
+                <span>Machine learning</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="experience-proof">
+            <span>Ce que cette expérience montre</span>
             <p>
-              Outil envoyant par mail une notification quotidienne ou hebdomadaire avec le programme des matchs à venir des équipes suivies.         
+              Une expérience sur un besoin interne structuré, avec de la logique applicative, de l'organisation de
+              données et une finalité exploitable pour des usages d'analyse avancée.
             </p>
-          <div class="stack">
-            <span>Python</span><span>JSON</span><span>API</span><span>Cron</span><span>SQLite</span><span>SMTP</span
           </div>
-          <a class="link" target="_blank" href="https://github.com/EthanCoutard/FootNotif">Détails →</a>
         </article>
+
+        <article class="glass company-card reveal">
+          <div class="company-head">
+            <div class="company-ident">
+              <span class="company-kicker">Stages en entreprise</span>
+              <h3>Enfance &amp; Pluriel</h3>
+              <p class="company-location">Tours</p>
+            </div>
+            <span class="company-badge">2 périodes</span>
+          </div>
+
+          <p class="company-summary">
+            Une première période centrée sur la maintenance, le déploiement et le support informatique, puis une
+            seconde orientée développement d'une application web de supervision réseau.
+          </p>
+
+          <div class="period-list">
+            <article class="period-item">
+              <div class="period-meta">
+                <span>Janvier 2025 - février 2025</span>
+                <strong>4 semaines</strong>
+              </div>
+              <h4>Maintenance, déploiement et support informatique</h4>
+              <p>
+                Participation à des opérations de maintenance informatique sur site et en atelier, préparation et
+                déploiement de postes Windows, intégration au domaine, interventions matérielles et assistance
+                utilisateurs, avec également des manipulations réseau comme le brassage de baie.
+              </p>
+              <div class="stack">
+                <span>Support informatique</span>
+                <span>Windows</span>
+                <span>Déploiement</span>
+                <span>FOG</span>
+                <span>Maintenance</span>
+                <span>Réseau</span>
+              </div>
+            </article>
+
+            <article class="period-item period-item-featured">
+              <div class="period-meta">
+                <span>Juin 2025 - juillet 2025</span>
+                <strong>4 semaines</strong>
+              </div>
+              <h4>Développement d'une application de supervision réseau</h4>
+              <p>
+                Développement d'une application web de supervision réseau intégrant une authentification administrateur,
+                un tableau de bord de suivi et un système d'alerte par e-mail en cas d'incident.
+              </p>
+              <div class="stack">
+                <span>Développement web</span>
+                <span>Supervision</span>
+                <span>Authentification</span>
+                <span>Tableau de bord</span>
+                <span>Alerting</span>
+              </div>
+            </article>
+          </div>
+
+          <div class="experience-proof">
+            <span>Ce que cette expérience montre</span>
+            <p>
+              Une capacité à intervenir sur des besoins réels d'entreprise, aussi bien côté support et infrastructure
+              que sur le développement d'un outil web concret.
+            </p>
+          </div>
+        </article>
+      </div>
+
+      <div class="grid-2 experience-grid">
+        <div class="glass card reveal">
+          <h3>Ce que ces stages renforcent</h3>
+          <ul class="list tight">
+            <li>Une expérience déjà confrontée à des besoins utilisateurs et techniques réels.</li>
+            <li>Une progression visible entre support, infrastructure et développement applicatif.</li>
+            <li>Une capacité à travailler dans un cadre d'entreprise sur des missions concrètes.</li>
+          </ul>
+        </div>
+
+        <div class="glass card reveal">
+          <h3>Compétences mobilisées en entreprise</h3>
+          <div class="pills">
+            <span class="pill">Support</span>
+            <span class="pill">Windows</span>
+            <span class="pill">Réseau</span>
+            <span class="pill">Déploiement</span>
+            <span class="pill">Maintenance</span>
+            <span class="pill">Développement web</span>
+            <span class="pill">Supervision</span>
+            <span class="pill">Data</span>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="section" id="skills">
       <div class="section-head reveal">
         <h2>Compétences</h2>
-        <p>Technos et domaines que je pratique le plus via mes projets.</p>
+        <p>
+          Des bases techniques construites par la pratique, avec un intérêt particulier pour ce qui tourne réellement
+          côté serveur et dans l'environnement système.
+        </p>
       </div>
 
-      <div class="grid-2">
-        <div class="glass card reveal">
+      <div class="grid-2 skill-grid">
+        <div class="glass card reveal skill-card">
           <h3>Développement</h3>
-          <ul class="list">
-            <li>Python (scripts, automatisation)</li>
-            <li>Go (API, backend)</li>
-            <li>Web (HTML, CSS, JavaScript)</li>
-            <li>Git (workflow, branches, PR)</li>
-          </ul>
+          <p>Python pour les scripts et l'automatisation, Go pour la logique backend, HTML, CSS et JavaScript pour des interfaces simples et lisibles.</p>
+          <div class="pills">
+            <span class="pill">Python</span>
+            <span class="pill">Go</span>
+            <span class="pill">HTML</span>
+            <span class="pill">CSS</span>
+            <span class="pill">JavaScript</span>
+          </div>
         </div>
 
-        <div class="glass card reveal">
-          <h3>Systèmes / Réseau</h3>
-          <ul class="list">
-            <li>Linux (services, bases d’admin)</li>
-            <li>Réseau (DNS, HTTP, RTSP)</li>
-            <li>Sécurisation (auth, accès, bonnes pratiques)</li>
-            <li>Déploiement et debug</li>
-          </ul>
+        <div class="glass card reveal skill-card">
+          <h3>Backend / API</h3>
+          <p>Gestion des utilisateurs, logique serveur, authentification, consommation d'API, traitement de données, envoi d'emails et base de données légère.</p>
+          <div class="pills">
+            <span class="pill">API</span>
+            <span class="pill">Auth</span>
+            <span class="pill">SQLite</span>
+            <span class="pill">SMTP</span>
+            <span class="pill">JSON</span>
+          </div>
+        </div>
+
+        <div class="glass card reveal skill-card">
+          <h3>Systèmes / réseau</h3>
+          <p>Linux, services de base, protocoles utiles en contexte projet, diagnostic technique et manipulation de flux ou d'outils système.</p>
+          <div class="pills">
+            <span class="pill">Linux</span>
+            <span class="pill">HTTP</span>
+            <span class="pill">DNS</span>
+            <span class="pill">RTSP</span>
+            <span class="pill">Services</span>
+          </div>
+        </div>
+
+        <div class="glass card reveal skill-card">
+          <h3>Outils / environnement</h3>
+          <p>Travail par itérations, utilisation de Git, planification simple avec cron, FFmpeg pour la vidéo et environnement de développement orienté projet.</p>
+          <div class="pills">
+            <span class="pill">Git</span>
+            <span class="pill">Cron</span>
+            <span class="pill">FFmpeg</span>
+            <span class="pill">Debug</span>
+            <span class="pill">Workflow projet</span>
+          </div>
         </div>
       </div>
 
-      <div class="glass stats reveal">
-        <div class="stat">
-          <div class="stat-value">3+</div>
-          <div class="stat-label">Langages pratiqués</div>
+      <div class="glass indicators reveal">
+        <div class="indicator">
+          <span>Formation</span>
+          <strong>Terminale Bac Pro CIEL</strong>
         </div>
-        <div class="stat">
-          <div class="stat-value">5+</div>
-          <div class="stat-label">Projets réalisés</div>
+        <div class="indicator">
+          <span>Objectif</span>
+          <strong>Alternance BTS SIO SLAM pour 2026</strong>
         </div>
-        <div class="stat">
-          <div class="stat-value">Tous les jours</div>
-          <div class="stat-label">Je progresse</div>
+        <div class="indicator">
+          <span>Approche</span>
+          <strong>Projets concrets, progression par la pratique et envie d'apprendre vite</strong>
         </div>
       </div>
     </section>
@@ -252,7 +498,7 @@
     <section class="section" id="certifications">
       <div class="section-head reveal">
         <h2>Certifications</h2>
-        <p>Certifications obtenues durant mon parcours.</p>
+        <p>Un repère complémentaire dans mon parcours.</p>
       </div>
 
       <div class="grid-3">
@@ -261,12 +507,17 @@
             <h3>Pix</h3>
             <span class="tag">Compétences numériques</span>
           </div>
-          <p>
-            Certification nationale qui valide des compétences numériques : traitement de données, sécurité de base,
-            développement et recherche d’informations.
-          </p>
+
+          <ul class="project-details">
+            <li><strong>Contenu</strong> Validation de compétences numériques autour des données, du développement, de la sécurité de base et de la recherche d'informations.</li>
+            <li><strong>Intérêt</strong> Un repère utile qui complète ma progression technique par la pratique.</li>
+          </ul>
+
           <div class="stack">
-            <span>Données</span><span>Dév</span><span>Sécurité</span><span>Recherche</span>
+            <span>Données</span>
+            <span>Développement</span>
+            <span>Sécurité</span>
+            <span>Recherche</span>
           </div>
         </article>
       </div>
@@ -275,28 +526,45 @@
     <section class="section" id="contact">
       <div class="section-head reveal">
         <h2>Contact</h2>
-        <p>N’hésite pas à me contacter pour échanger ou discuter d’une opportunité.</p>
+        <p>Pour une alternance, un échange ou une demande de CV, les informations utiles sont centralisées ici.</p>
       </div>
 
-      <div class="grid-2">
-        <div class="glass card reveal">
-          <h3>Liens</h3>
-          <p class="muted">
-            GitHub, LinkedIn et mail pour me joindre rapidement.
-          </p>
-          <div class="contact-links">
-            <a class="chip" href="https://github.com/EthanCoutard" target="_blank" rel="noreferrer">GitHub</a>
-            <a class="chip" href="https://www.linkedin.com/in/ethan-coutard-763733340/" target="_blank" rel="noreferrer">LinkedIn</a>
-            <a class="chip" href="mailto:ethancoutardpro@gmail.com">ethancoutardpro@gmail.com</a>
+      <div class="grid-2 contact-grid">
+        <div class="glass card reveal contact-card">
+          <h3>Contact direct</h3>
+          <p class="muted">Pour recevoir mon CV, merci de me contacter via le formulaire de contact ou par email. GitHub et LinkedIn restent aussi accessibles ci-dessous.</p>
+
+          <div class="contact-actions">
+            <a class="contact-action" href="mailto:ethancoutardpro@gmail.com">
+              <span>Email</span>
+              <strong>ethancoutardpro@gmail.com</strong>
+            </a>
+
+            <a class="contact-action" href="https://github.com/EthanCoutard" target="_blank" rel="noreferrer">
+              <span>GitHub</span>
+              <strong>github.com/EthanCoutard</strong>
+            </a>
+
+            <a class="contact-action" href="https://www.linkedin.com/in/ethan-coutard-763733340/" target="_blank" rel="noreferrer">
+              <span>LinkedIn</span>
+              <strong>Voir mon profil LinkedIn</strong>
+            </a>
+
+            <a class="contact-action" href="#contact-form">
+              <span>CV</span>
+              <strong>Pour recevoir mon CV, merci de me contacter via le formulaire</strong>
+            </a>
           </div>
-          <div class="status">
-            <span class="dot"></span>
-            Actuellement à la recherche d’une alternance pour un BTS SIO – rentrée 2026
+
+          <div class="availability">
+            <span class="availability-dot"></span>
+            Recherche active d'une alternance pour un BTS SIO option SLAM à la rentrée 2026
           </div>
         </div>
 
-        <form class="glass card reveal form" onsubmit="return sendMail(event)">
-          <h3>Envoyer un message</h3>
+        <form class="glass card reveal form" id="contact-form" onsubmit="return sendMail(event)">
+          <h3>Préparer un message</h3>
+          <p class="muted">Ce formulaire ouvre votre messagerie avec un message prérempli. Vous pouvez aussi l'utiliser pour demander mon CV.</p>
 
           <label class="field">
             <span>Nom</span>
@@ -304,7 +572,7 @@
           </label>
 
           <label class="field">
-            <span>Objet de la demande</span>
+            <span>Objet</span>
 
             <div class="cselect" data-select="objet-mail">
               <button class="cselect-btn" type="button" aria-haspopup="listbox" aria-expanded="false">
@@ -313,9 +581,9 @@
               </button>
 
               <div class="cselect-menu" role="listbox" tabindex="-1">
-                <button class="cselect-item" type="button" role="option" data-value="Demande de CV">Recevoir mon CV</button>
-                <button class="cselect-item" type="button" role="option" data-value="Proposition de stage">Proposition de stage / alternance</button>
-                <button class="cselect-item" type="button" role="option" data-value="Projet freelance">Projet informatique</button>
+                <button class="cselect-item" type="button" role="option" data-value="Demande de CV">Demande de CV</button>
+                <button class="cselect-item" type="button" role="option" data-value="Proposition d'alternance">Proposition d'alternance</button>
+                <button class="cselect-item" type="button" role="option" data-value="Projet technique">Projet technique</button>
                 <button class="cselect-item" type="button" role="option" data-value="Question">Question</button>
                 <button class="cselect-item" type="button" role="option" data-value="Autre">Autre</button>
               </div>
@@ -323,9 +591,9 @@
 
             <select name="objet" id="objet-mail" required hidden>
               <option value="">Choisir un sujet</option>
-              <option value="Demande de CV">Recevoir mon CV</option>
-              <option value="Proposition de stage">Proposition de stage / alternance</option>
-              <option value="Projet freelance">Projet informatique</option>
+              <option value="Demande de CV">Demande de CV</option>
+              <option value="Proposition d'alternance">Proposition d'alternance</option>
+              <option value="Projet technique">Projet technique</option>
               <option value="Question">Question</option>
               <option value="Autre">Autre</option>
             </select>
@@ -341,8 +609,8 @@
             <textarea id="message" rows="6" required></textarea>
           </label>
 
-          <button class="btn primary" type="submit">Envoyer le message</button>
-          <p class="hint" id="hint">Je vous répondrai dès que possible.</p>
+          <button class="btn primary" type="submit">Ouvrir ma messagerie</button>
+          <p class="hint" id="hint">Votre message sera préparé dans l’application mail par défaut.</p>
         </form>
       </div>
 

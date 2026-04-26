@@ -2,16 +2,35 @@ document.documentElement.classList.add("js")
 
 const y1 = document.getElementById("year")
 if (y1) y1.textContent = new Date().getFullYear()
+
 const y2 = document.getElementById("year2")
 if (y2) y2.textContent = new Date().getFullYear()
 
 const video = document.getElementById("video")
+const videoSource = video?.querySelector("source") || null
+const prefersReducedMotion = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches
+
 if (video) {
-  const tryPlay = () => video.play().catch(() => {})
-  document.addEventListener("visibilitychange", () => {
-    if (!document.hidden) tryPlay()
-  })
-  tryPlay()
+  const markReady = () => video.classList.add("loaded")
+  const disableVideo = () => {
+    video.pause()
+    video.classList.remove("loaded")
+  }
+  const tryPlay = () => video.play().then(markReady).catch(() => {})
+
+  if (prefersReducedMotion || !videoSource || !videoSource.getAttribute("src")) {
+    disableVideo()
+  } else {
+    video.addEventListener("loadeddata", markReady, { once: true })
+    video.addEventListener("error", disableVideo)
+    videoSource.addEventListener("error", disableVideo)
+
+    document.addEventListener("visibilitychange", () => {
+      if (!document.hidden) tryPlay()
+    })
+
+    tryPlay()
+  }
 }
 
 function hideLoader() {
@@ -25,24 +44,23 @@ document.addEventListener("DOMContentLoaded", () => {
   setTimeout(hideLoader, 450)
 })
 
-window.addEventListener("load", () => {
-  hideLoader()
-})
-
-setTimeout(() => {
-  hideLoader()
-}, 3500)
+window.addEventListener("load", hideLoader)
+setTimeout(hideLoader, 3500)
 
 const els = Array.from(document.querySelectorAll(".reveal"))
-const io = new IntersectionObserver(
-  entries => {
-    for (const e of entries) {
-      if (e.isIntersecting) e.target.classList.add("show")
-    }
-  },
-  { threshold: 0.12 }
-)
-els.forEach(el => io.observe(el))
+if ("IntersectionObserver" in window) {
+  const io = new IntersectionObserver(
+    entries => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) entry.target.classList.add("show")
+      }
+    },
+    { threshold: 0.12 }
+  )
+  els.forEach(el => io.observe(el))
+} else {
+  els.forEach(el => el.classList.add("show"))
+}
 
 const links = Array.from(document.querySelectorAll(".nav-link"))
   .filter(a => (a.getAttribute("href") || "").startsWith("#") && (a.getAttribute("href") || "").length > 1)
@@ -57,7 +75,9 @@ const topOffset = 120
 function setActive(id) {
   if (id === currentId) return
   currentId = id
-  for (const a of links) a.classList.toggle("active", a.getAttribute("href") === "#" + id)
+  for (const a of links) {
+    a.classList.toggle("active", a.getAttribute("href") === "#" + id)
+  }
 }
 
 function onScrollSpy() {
@@ -73,13 +93,13 @@ function onScrollSpy() {
   let bestId = sections[0]?.id || null
   let bestDist = Infinity
 
-  for (const s of sections) {
-    const r = s.getBoundingClientRect()
-    if (r.bottom <= topOffset) continue
-    const dist = Math.abs(r.top - topOffset)
+  for (const section of sections) {
+    const rect = section.getBoundingClientRect()
+    if (rect.bottom <= topOffset) continue
+    const dist = Math.abs(rect.top - topOffset)
     if (dist < bestDist) {
       bestDist = dist
-      bestId = s.id
+      bestId = section.id
     }
   }
 
@@ -96,14 +116,12 @@ window.addEventListener("scroll", () => {
   })
 }, { passive: true })
 
-window.addEventListener("resize", () => {
-  onScrollSpy()
-})
-
+window.addEventListener("resize", onScrollSpy)
 onScrollSpy()
 
 function sendMail(e) {
   e.preventDefault()
+
   const name = document.getElementById("name")?.value?.trim() || ""
   const email = document.getElementById("email")?.value?.trim() || ""
   const objet = document.getElementById("objet-mail")?.value?.trim() || ""
@@ -111,14 +129,14 @@ function sendMail(e) {
   const hint = document.getElementById("hint")
 
   if (!name || !email || !message || !objet) {
-    if (hint) hint.textContent = "Veuillez remplir tout les champs."
+    if (hint) hint.textContent = "Veuillez remplir tous les champs."
     return false
   }
 
   const subject = encodeURIComponent(`${objet} - ${name}`)
-  const body = encodeURIComponent(`Nom: ${name}\nEmail: ${email}\n\n${message}`)
+  const body = encodeURIComponent(`Nom : ${name}\nEmail : ${email}\n\n${message}`)
 
-  if (hint) hint.textContent = "Ouverture de l'application de mail"
+  if (hint) hint.textContent = "Ouverture de votre messagerie..."
   window.location.href = `mailto:ethancoutardpro@gmail.com?subject=${subject}&body=${body}`
   return false
 }
@@ -140,8 +158,8 @@ if (menuBtn) {
 
 if (sidebar) {
   sidebar.addEventListener("click", e => {
-    const a = e.target.closest("a")
-    if (a && a.classList.contains("nav-link")) closeMenu()
+    const anchor = e.target.closest("a")
+    if (anchor && (anchor.getAttribute("href") || "").startsWith("#")) closeMenu()
   })
 }
 
@@ -158,22 +176,21 @@ document.addEventListener("click", e => {
 const parallax = document.querySelector(".orbit-parallax")
 const orbitWrap = document.querySelector(".orbit-wrapper")
 
-if (parallax && orbitWrap) {
+if (parallax && orbitWrap && window.matchMedia("(pointer:fine)").matches) {
   let tx = 0
   let ty = 0
   let x = 0
   let y = 0
   let t = null
 
-  const clamp = (v, a, b) => Math.max(a, Math.min(b, v))
-
+  const clamp = (value, min, max) => Math.max(min, Math.min(max, value))
   const setPaused = on => orbitWrap.classList.toggle("is-paused", on)
 
   window.addEventListener("mousemove", e => {
     const w = window.innerWidth || 1
     const h = window.innerHeight || 1
-    const nx = ((e.clientX - w/2) / (w/2))
-    const ny = ((e.clientY - h/2) / (h/2))
+    const nx = (e.clientX - w / 2) / (w / 2)
+    const ny = (e.clientY - h / 2) / (h / 2)
 
     tx = clamp(nx * 55, -65, 65)
     ty = clamp(-ny * 45, -55, 55)
@@ -181,28 +198,31 @@ if (parallax && orbitWrap) {
     setPaused(true)
     if (t) clearTimeout(t)
     t = setTimeout(() => setPaused(false), 10)
-  }, { passive:true })
+  }, { passive: true })
 
   const loop = () => {
     x += (tx - x) * 0.14
     y += (ty - y) * 0.14
-    parallax.style.setProperty("--px", x.toFixed(3) + "deg")
-    parallax.style.setProperty("--py", y.toFixed(3) + "deg")
+    parallax.style.setProperty("--px", `${x.toFixed(3)}deg`)
+    parallax.style.setProperty("--py", `${y.toFixed(3)}deg`)
     requestAnimationFrame(loop)
   }
+
   loop()
 }
 
-(() => {
+;(() => {
   const selects = document.querySelectorAll(".cselect")
 
-  selects.forEach((wrap) => {
+  selects.forEach(wrap => {
     const selectId = wrap.dataset.select
     const real = document.getElementById(selectId)
     const btn = wrap.querySelector(".cselect-btn")
     const valueEl = wrap.querySelector(".cselect-value")
     const menu = wrap.querySelector(".cselect-menu")
     const items = [...wrap.querySelectorAll(".cselect-item")]
+
+    if (!real || !btn || !valueEl || !menu || !items.length) return
 
     const close = () => {
       wrap.classList.remove("open")
@@ -215,10 +235,10 @@ if (parallax && orbitWrap) {
       menu.focus()
     }
 
-    const setValue = (val, label) => {
-      real.value = val
+    const setValue = (value, label) => {
+      real.value = value
       valueEl.textContent = label
-      items.forEach((i) => i.classList.toggle("is-selected", i.dataset.value === val))
+      items.forEach(item => item.classList.toggle("is-selected", item.dataset.value === value))
     }
 
     btn.addEventListener("click", () => {
@@ -226,7 +246,7 @@ if (parallax && orbitWrap) {
       else open()
     })
 
-    items.forEach((item) => {
+    items.forEach(item => {
       item.addEventListener("click", () => {
         setValue(item.dataset.value, item.textContent)
         close()
@@ -234,13 +254,12 @@ if (parallax && orbitWrap) {
       })
     })
 
-    document.addEventListener("click", (e) => {
+    document.addEventListener("click", e => {
       if (!wrap.contains(e.target)) close()
     })
 
-    document.addEventListener("keydown", (e) => {
-      if (!wrap.classList.contains("open")) return
-      if (e.key === "Escape") close()
+    document.addEventListener("keydown", e => {
+      if (wrap.classList.contains("open") && e.key === "Escape") close()
     })
 
     const initOpt = real.options[real.selectedIndex]
