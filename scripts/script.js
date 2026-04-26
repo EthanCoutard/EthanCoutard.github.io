@@ -176,7 +176,7 @@ document.addEventListener("click", e => {
 const parallax = document.querySelector(".orbit-parallax")
 const orbitWrap = document.querySelector(".orbit-wrapper")
 
-if (parallax && orbitWrap && window.matchMedia("(pointer:fine)").matches) {
+if (parallax && orbitWrap && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
   let tx = 0
   let ty = 0
   let x = 0

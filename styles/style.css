@@ -1008,7 +1008,7 @@ html.js .reveal.show{
 .orbit-wrapper{
   position:absolute;
   inset:0;
-  display:grid;
+  display:none;
   place-items:center;
   pointer-events:none;
   z-index:4;
@@ -1129,6 +1129,12 @@ html.js .reveal.show{
 .orbit-wrapper.is-paused .spin-y,
 .orbit-wrapper.is-paused .spin-z{
   animation-play-state:paused;
+}
+
+@media (hover: hover) and (pointer: fine){
+  .orbit-wrapper{
+    display:grid;
+  }
 }
 
 .cselect{
